@@ -69,7 +69,7 @@ module.exports = function (grunt) {
       },
       my_target: {
         files: {
-          'dist/js/app.min.js': ['dist/js/app.js']
+          'dist/js/AdminLTE.min.js': ['dist/js/app.js']
         }
       }
     },
