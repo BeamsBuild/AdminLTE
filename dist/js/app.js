@@ -39,7 +39,6 @@ $.AdminLTE.options = {
   //This requires you to load the slimscroll plugin
   //in every page before app.js
   navbarMenuSlimscroll: false,
-  navbarMenuHeight: "200px", //The height of the inner menu
   //Sidebar push menu toggle button selector
   sidebarToggleSelector: "[data-toggle='offcanvas']",
   //Activate sidebar push menu
@@ -59,7 +58,7 @@ $.AdminLTE.options = {
   //native touch experience with touch devices. If you
   //choose to enable the plugin, make sure you load the script
   //before AdminLTE's app.js
-  enableFastclick: false,
+  enableFastclick: true,
   //Control Sidebar Options
   enableControlSidebar: true,
   controlSidebarOptions: {
@@ -234,37 +233,42 @@ function _init() {
       var _this = this;
       _this.fix();
       _this.fixSidebar();
+	  _this.toggleSidebarOnResize()
+      
       $(window, ".wrapper").resize(function () {
         _this.fix();
         _this.fixSidebar();
+		_this.toggleSidebarOnResize();
       });
     },
     fix: function () {
       //Get window height and the wrapper height
-      var neg = $('.main-header').outerHeight() + $('.main-footer').outerHeight();
+      var header_height = $('.main-header').outerHeight();
+      var footer_height = $('.main-footer').outerHeight();
       var window_height = $(window).height();
-      var sidebar_height = $(".sidebar").height();
+      var sidebar_height = $(".sidebar").height() + 20; // Buffer
       //Set the min-height of the content and sidebar based on the
       //the height of the document.
       if ($("body").hasClass("fixed")) {
-        $(".content-wrapper, .right-side").css('min-height', window_height - $('.main-footer').outerHeight());
+        $(".content-wrapper, .right-side").css('min-height', window_height - footer_height);
       } else {
         var postSetWidth;
-        if (window_height >= sidebar_height) {
-          $(".content-wrapper, .right-side").css('min-height', window_height - neg);
-          postSetWidth = window_height - neg;
-        } else {
-          $(".content-wrapper, .right-side").css('min-height', sidebar_height);
+        if (window_height > sidebar_height + header_height) {
+          $(".content-wrapper, .right-side").css('min-height', window_height - (header_height+footer_height));
           postSetWidth = sidebar_height;
+        } else {
+          $(".content-wrapper, .right-side").css('min-height', sidebar_height - footer_height);
+          postSetWidth = sidebar_height - footer_height;
         }
-
+        
         //Fix for the control sidebar height
-        var controlSidebar = $($.AdminLTE.options.controlSidebarOptions.selector);
-        if (typeof controlSidebar !== "undefined") {
-          if (controlSidebar.height() > postSetWidth)
-            $(".content-wrapper, .right-side").css('min-height', controlSidebar.height());
+        if ($.AdminLTE.options.enableControlSidebar) {
+          var controlSidebar = $($.AdminLTE.options.controlSidebarOptions.selector);
+          if (typeof controlSidebar !== "undefined") {
+            if (controlSidebar.height() > postSetWidth)
+              $(".content-wrapper, .right-side").css('min-height', controlSidebar.height());
+          }
         }
-
       }
     },
     fixSidebar: function () {
@@ -273,7 +277,8 @@ function _init() {
         if (typeof $.fn.slimScroll != 'undefined') {
           $(".sidebar").slimScroll({destroy: true}).height("auto");
         }
-        return;
+		
+		return;
       } else if (typeof $.fn.slimScroll == 'undefined' && console) {
         console.error("Error: the fixed layout requires the slimscroll plugin!");
       }
@@ -290,7 +295,21 @@ function _init() {
           });
         }
       }
-    }
+    },
+	windowWidth: 0,
+	toggleSidebarOnResize: function() {
+	  var _this = this;
+	  if ( _this.windowWidth != $(window).width() ) {
+	    _this.windowWidth = $(window).width();
+		
+		if ( _this.windowWidth < $.AdminLTE.options.screenSizes.md ) {
+		  $("body").addClass('sidebar-collapse');
+		}
+		else {
+		  $("body").removeClass('sidebar-collapse');  
+		}
+	  }
+	}
   };
 
   /* PushMenu()
@@ -377,46 +396,32 @@ function _init() {
    */
   $.AdminLTE.tree = function (menu) {
     var _this = this;
-
+    
     $("li a", $(menu)).on('click', function (e) {
       //Get the clicked link and the next element
       var $this = $(this);
-      var checkElement = $this.next();
-
-      //Check if the next element is a menu and is visible
-      if ((checkElement.is('.treeview-menu')) && (checkElement.is(':visible'))) {
-        //Close the menu
-        checkElement.slideUp('normal', function () {
-          checkElement.removeClass('menu-open');
-          //Fix the layout in case the sidebar stretches over the height of the window
-          //_this.layout.fix();
-        });
-        checkElement.parent("li").removeClass("active");
-      }
-      //If the menu is not visible
-      else if ((checkElement.is('.treeview-menu')) && (!checkElement.is(':visible'))) {
-        //Get the parent menu
-        var parent = $this.parents('ul').first();
-        //Close all open menus within the parent
-        var ul = parent.find('ul:visible').slideUp('normal');
-        //Remove the menu-open class from the parent
-        ul.removeClass('menu-open');
-        //Get the parent li
-        var parent_li = $this.parent("li");
-
-        //Open the target menu and add the menu-open class
-        checkElement.slideDown('normal', function () {
-          //Add the class active to the parent li
-          checkElement.addClass('menu-open');
-          parent.find('li.active').removeClass('active');
-          parent_li.addClass('active');
-          //Fix the layout in case the sidebar stretches over the height of the window
-          _this.layout.fix();
-        });
-      }
-      //if this isn't a link, prevent the page from being redirected
-      if (checkElement.is('.treeview-menu')) {
+      var submenu = $this.next('.treeview-menu');
+      var arrow = $('i.pull-right', $this);
+      
+      if ( submenu.length > 0 ) {
         e.preventDefault();
+        
+        if ( submenu.is(':visible') ) {
+          arrow.removeClass('selected');
+          submenu.removeClass('menu-open').slideUp(250, function() {
+            submenu.parent("li").removeClass("selected");
+            //Fix the layout in case the sidebar stretches over the height of the window
+            _this.layout.fix();
+          });
+        }
+        else {
+          arrow.addClass('selected');
+          submenu.addClass('menu-open').slideDown(250, function() {
+            submenu.parent("li").addClass("selected");
+            //Fix the layout in case the sidebar stretches over the height of the window
+            _this.layout.fix();
+          });         
+        }
       }
     });
   };

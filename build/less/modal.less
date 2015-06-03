@@ -2,6 +2,18 @@
  * Component: modal
  * ----------------
  */
+ 
+@media (min-width: @screen-sm-min) {
+	.sidebar-mini .modal {
+		padding-top: 50px;
+		padding-left: 230px;
+		transition: padding .3s ease-in-out
+	}
+	.sidebar-mini.sidebar-collapse .modal {
+		padding-left: 50px;
+	}
+}
+ 
 .modal {
   background: rgba(0,0,0,.3);
 }
@@ -18,6 +30,9 @@
 }
 .modal-footer {
   border-top-color: @box-border-color;
+}
+.modal-body {
+  overflow-y: auto;
 }
 
 //Modal variants

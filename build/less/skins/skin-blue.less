@@ -8,16 +8,19 @@
 @import "../mixins.less";
 
 .skin-blue {
-  //Navbar
   .main-header {
     .navbar {
       .navbar-variant(@light-blue; #fff);
+	  .dropdown-menu {
+		border: 1px solid darken(@light-blue, 5%);
+		border-top: none;
+	  }
       .sidebar-toggle {
         color: #fff;
         &:hover {
           background-color: darken(@light-blue, 5%);
         }
-      }
+	  }
       @media (max-width: @screen-header-collapse) {
         .dropdown-menu {
           li {
@@ -40,7 +43,7 @@
     }
 
     li.user-header {
-      background-color: @light-blue;
+      background-color: darken(@light-blue, 5%);
     }
   }
 

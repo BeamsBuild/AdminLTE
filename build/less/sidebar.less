@@ -83,18 +83,21 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  a { text-decoration: none !important; }
   //First Level
   > li {
     position: relative;
     margin: 0;
     padding: 0;
     > a {
-      padding: 12px 5px 12px 15px;
+      padding: 12px 5px 12px 10px;
       display: block;
       > .fa,
       > .glyphicon,
       > .ion {
-        width: 20px;
+        width: 24px;
+		text-align: center;
+		margin-right: 8px;
       }
     }
     .label,
@@ -107,17 +110,26 @@
     padding: 10px 25px 10px 15px;
     font-size: 12px;
   }
-  li > a > .fa-angle-left {
-    width: auto;
-    height: auto;
-    padding: 0;
-    margin-right: 10px;
-    margin-top: 3px;
+  li > a {
+    position: relative;
+	> i.pull-right {
+	  position: absolute;
+      top: 50%;
+      right: 4px;
+	  width: 20px;
+	  height: 20px;
+	  padding: 0;
+	  margin: -10px 0 0 0;
+	  text-align: center;
+	  line-height: 20px;
+	  .transition(transform 0.25s);
+	  
+	  &.selected {
+	    .rotate(-90deg);
+	  }
+	}
   }
-  li.active {
-    > a > .fa-angle-left {
-      .rotate(-90deg);
-    }
+  li.selected {
     > .treeview-menu {
       display: block;
     }
@@ -127,8 +139,8 @@
   .treeview-menu {
     display: none;
     list-style: none;
-    padding:0;
-    margin:0;
+    padding: 0;
+    margin: 0;
     padding-left: 5px;
     .treeview-menu {
       padding-left: 20px;
@@ -136,13 +148,15 @@
     > li {
       margin: 0;
       > a {
-        padding: 5px 5px 5px 15px;
+        padding: 8px 5px 8px 15px;
         display: block;
         font-size: 14px;
         > .fa,
         > .glyphicon,
         > .ion {
-          width: 20px;
+          width: 24px;
+		  text-align: center;
+		  margin-right: 8px;
         }
         > .fa-angle-left,
         > .fa-angle-down {

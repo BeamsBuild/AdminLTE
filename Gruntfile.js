@@ -18,21 +18,21 @@ module.exports = function (grunt) {
         },
         files: {
           // compilation.css  :  source.less          
-          "dist/css/AdminLTE.css": "build/less/AdminLTE.less",
+          "dist/css/AdminLTE.css": "build/less/AdminLTE.less"
           //Non minified skin files
-          "dist/css/skins/skin-blue.css": "build/less/skins/skin-blue.less",
-          "dist/css/skins/skin-black.css": "build/less/skins/skin-black.less",
-          "dist/css/skins/skin-yellow.css": "build/less/skins/skin-yellow.less",
-          "dist/css/skins/skin-green.css": "build/less/skins/skin-green.less",
-          "dist/css/skins/skin-red.css": "build/less/skins/skin-red.less",
-          "dist/css/skins/skin-purple.css": "build/less/skins/skin-purple.less",
-          "dist/css/skins/skin-blue-light.css": "build/less/skins/skin-blue-light.less",
-          "dist/css/skins/skin-black-light.css": "build/less/skins/skin-black-light.less",
-          "dist/css/skins/skin-yellow-light.css": "build/less/skins/skin-yellow-light.less",
-          "dist/css/skins/skin-green-light.css": "build/less/skins/skin-green-light.less",
-          "dist/css/skins/skin-red-light.css": "build/less/skins/skin-red-light.less",
-          "dist/css/skins/skin-purple-light.css": "build/less/skins/skin-purple-light.less",
-          "dist/css/skins/_all-skins.css": "build/less/skins/_all-skins.less"
+          // "dist/css/skins/skin-blue.css": "build/less/skins/skin-blue.less",
+          // "dist/css/skins/skin-black.css": "build/less/skins/skin-black.less",
+          // "dist/css/skins/skin-yellow.css": "build/less/skins/skin-yellow.less",
+          // "dist/css/skins/skin-green.css": "build/less/skins/skin-green.less",
+          // "dist/css/skins/skin-red.css": "build/less/skins/skin-red.less",
+          // "dist/css/skins/skin-purple.css": "build/less/skins/skin-purple.less",
+          // "dist/css/skins/skin-blue-light.css": "build/less/skins/skin-blue-light.less",
+          // "dist/css/skins/skin-black-light.css": "build/less/skins/skin-black-light.less",
+          // "dist/css/skins/skin-yellow-light.css": "build/less/skins/skin-yellow-light.less",
+          // "dist/css/skins/skin-green-light.css": "build/less/skins/skin-green-light.less",
+          // "dist/css/skins/skin-red-light.css": "build/less/skins/skin-red-light.less",
+          // "dist/css/skins/skin-purple-light.css": "build/less/skins/skin-purple-light.less",
+          // "dist/css/skins/_all-skins.css": "build/less/skins/_all-skins.less"
         }
       },
       // Production compresses version
@@ -43,21 +43,21 @@ module.exports = function (grunt) {
         },
         files: {
           // compilation.css  :  source.less
-          "dist/css/AdminLTE.min.css": "build/less/AdminLTE.less",
+          "dist/css/AdminLTE.min.css": "build/less/AdminLTE.less"
           // Skins minified
-          "dist/css/skins/skin-blue.min.css": "build/less/skins/skin-blue.less",
-          "dist/css/skins/skin-black.min.css": "build/less/skins/skin-black.less",
-          "dist/css/skins/skin-yellow.min.css": "build/less/skins/skin-yellow.less",
-          "dist/css/skins/skin-green.min.css": "build/less/skins/skin-green.less",
-          "dist/css/skins/skin-red.min.css": "build/less/skins/skin-red.less",
-          "dist/css/skins/skin-purple.min.css": "build/less/skins/skin-purple.less",
-          "dist/css/skins/skin-blue-light.min.css": "build/less/skins/skin-blue-light.less",
-          "dist/css/skins/skin-black-light.min.css": "build/less/skins/skin-black-light.less",
-          "dist/css/skins/skin-yellow-light.min.css": "build/less/skins/skin-yellow-light.less",
-          "dist/css/skins/skin-green-light.min.css": "build/less/skins/skin-green-light.less",
-          "dist/css/skins/skin-red-light.min.css": "build/less/skins/skin-red-light.less",
-          "dist/css/skins/skin-purple-light.min.css": "build/less/skins/skin-purple-light.less",
-          "dist/css/skins/_all-skins.min.css": "build/less/skins/_all-skins.less"
+          // "dist/css/skins/skin-blue.min.css": "build/less/skins/skin-blue.less",
+          // "dist/css/skins/skin-black.min.css": "build/less/skins/skin-black.less",
+          // "dist/css/skins/skin-yellow.min.css": "build/less/skins/skin-yellow.less",
+          // "dist/css/skins/skin-green.min.css": "build/less/skins/skin-green.less",
+          // "dist/css/skins/skin-red.min.css": "build/less/skins/skin-red.less",
+          // "dist/css/skins/skin-purple.min.css": "build/less/skins/skin-purple.less",
+          // "dist/css/skins/skin-blue-light.min.css": "build/less/skins/skin-blue-light.less",
+          // "dist/css/skins/skin-black-light.min.css": "build/less/skins/skin-black-light.less",
+          // "dist/css/skins/skin-yellow-light.min.css": "build/less/skins/skin-yellow-light.less",
+          // "dist/css/skins/skin-green-light.min.css": "build/less/skins/skin-green-light.less",
+          // "dist/css/skins/skin-red-light.min.css": "build/less/skins/skin-red-light.less",
+          // "dist/css/skins/skin-purple-light.min.css": "build/less/skins/skin-purple-light.less",
+          // "dist/css/skins/_all-skins.min.css": "build/less/skins/_all-skins.less"
         }
       }
     },
@@ -69,7 +69,8 @@ module.exports = function (grunt) {
       },
       my_target: {
         files: {
-          'dist/js/AdminLTE.min.js': ['dist/js/app.js']
+          'dist/js/AdminLTE.min.js': ['dist/js/app.js'],
+		  'dist/js/fastclick.min.js': ['dist/js/fastclick.js']
         }
       }
     },

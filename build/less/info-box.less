@@ -10,6 +10,7 @@
   box-shadow: @box-boxshadow;
   .border-radius(2px);
   margin-bottom: 15px;
+  text-decoration: none;
   small {
     font-size: 14px;
   }
@@ -36,6 +37,9 @@
   font-size: 45px;
   line-height: 90px;
   background: rgba(0,0,0,0.2);
+  i {
+	transition: 0.25s;
+  }
 }
 .info-box-content {
   padding: 5px 10px;
@@ -63,4 +67,16 @@
 
 .progress-description {
   margin: 0;
+}
+
+a.info-box:hover,
+a.info-box:active,
+a.info-box:focus {
+  text-decoration: none;
+  .info-box-text {
+    text-decoration: underline;
+  }
+  .info-box-icon i {
+    transform: rotate(-10deg) scale(1.25);
+  }
 }

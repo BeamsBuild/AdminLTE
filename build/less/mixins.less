@@ -127,12 +127,15 @@
     > a {
       border-left: 3px solid transparent;      
     }
-    //Hover and active states
-    &:hover > a, &.active > a {
+    //Hover, selected and active states
+    &:hover > a, &.active > a, &.selected > a {
       color: @sidebar-dark-hover-color;
       background: @sidebar-dark-hover-bg;
-      border-left-color: @link-hover-border-color;
-    }
+	}
+	&.active > a {
+	  border-left-color: @link-hover-border-color;
+	}
+	
     //First Level Submenu
     > .treeview-menu {
       margin: 0 1px;
@@ -142,9 +145,6 @@
   //All links within the sidebar menu
   .sidebar a {
     color: @sidebar-dark-color;
-    &:hover {
-      text-decoration: none;
-    }
   }
   //All submenus
   .treeview-menu {
