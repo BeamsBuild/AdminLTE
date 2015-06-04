@@ -6,16 +6,22 @@
 @media (min-width: @screen-sm-min) {
 	.sidebar-mini .modal {
 		padding-top: 50px;
-		padding-left: 230px;
-		transition: padding .3s ease-in-out
-	}
-	.sidebar-mini.sidebar-collapse .modal {
 		padding-left: 50px;
+		/*padding-left: 230px;*/
+		.transition("padding .3s ease-in-out");
 	}
+	/*.sidebar-mini.sidebar-collapse .modal {
+		padding-left: 50px;
+	}*/
 }
  
 .modal {
   background: rgba(0,0,0,.3);
+  
+  &.fade .modal-dialog {
+    .translate(0, 0);
+	.transition-transform("none");
+  }
 }
 .modal-content {
   .border-radius(0);

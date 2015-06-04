@@ -30,6 +30,7 @@
 
   &:focus {
     outline: none;
+	box-shadow: none;
   }
 
   // input file btn
@@ -50,7 +51,14 @@
       cursor: inherit;
       display: block;
     }
-  }  
+  }
+  
+  &.with-icon {
+    > .fa, > .glyphicon, > .ion {
+      margin-right: 6px;
+	  margin-left: -3px;
+    }
+  }
 }
 
 //Button color variations
