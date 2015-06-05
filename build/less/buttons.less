@@ -54,7 +54,7 @@
   }
   
   &.with-icon {
-    > .fa, > .glyphicon, > .ion {
+    > .fa:first-child, > .glyphicon:first-child {
       margin-right: 6px;
 	  margin-left: -3px;
     }
@@ -99,10 +99,10 @@
   }
 }
 .btn-warning {
-  background-color: @yellow;
-  border-color: darken(@yellow, 5%);
+  background-color: @orange;
+  border-color: darken(@orange, 5%);
   &:hover, &:active, &.hover {
-    background-color: darken(@yellow, 5%);
+    background-color: darken(@orange, 5%);
   }
 }
 .btn-outline {

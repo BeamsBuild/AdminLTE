@@ -12,16 +12,18 @@
   
   > li > a {
     color: #777;
-	padding: 6px 20px;
-  }
-  > li > a > .glyphicon,
-  > li > a > .fa,
-  > li > a > .ion{
-    margin-right: 10px;
-  }
-  > li > a:hover {
-    background-color: lighten(@gray, 5%);
-    color: #333;
+	padding: 6px 12px;
+  
+    > .glyphicon:first-child,
+    > .fa:first-child,
+    > .ion:first-child {
+      margin-right: 10px;
+    }
+    
+	&:hover {
+      background-color: lighten(@gray, 5%);
+      color: #333;
+	}
   }
   > .divider {
     background-color: #eee;
@@ -331,7 +333,7 @@
       }
     }
   }
-@media (max-width: @screen-sm-max) {
+@media (max-width: @screen-xs-max) {
   .navbar-custom-menu > .navbar-nav {
     float: right;
     > li {
