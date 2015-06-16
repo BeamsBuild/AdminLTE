@@ -67,19 +67,22 @@
   color: #444;
   border-color: #ddd;
   &:hover, &:active, &.hover {
-    background-color:darken(#f4f4f4, 5%)!important;
+    background-color:darken(#f4f4f4, 5%);
   }
 }
 .btn-primary {
   background-color: @light-blue;
   border-color: darken(@light-blue, 5%);
+  color: #fff;
   &:hover, &:active, &.hover {
     background-color: darken(@light-blue, 5%);
   }
 }
+.form-group.has-success .btn,
 .btn-success {
   background-color: @green;
   border-color: darken(@green, 5%);
+  color: #fff;
   &:hover, &:active, &.hover {
     background-color: darken(@green, 5%);
   }
@@ -87,20 +90,25 @@
 .btn-info {
   background-color: @aqua;
   border-color: darken(@aqua, 5%);
+  color: #fff;
   &:hover, &:active, &.hover {
     background-color: darken(@aqua, 5%);
   }
 }
+.form-group.has-error .btn,
 .btn-danger {
   background-color: @red;
   border-color: darken(@red, 5%);
+  color: #fff;
   &:hover, &:active, &.hover {
     background-color: darken(@red, 5%);
   }
 }
+.form-group.has-warning .btn,
 .btn-warning {
   background-color: @orange;
   border-color: darken(@orange, 5%);
+  color: #fff;
   &:hover, &:active, &.hover {
     background-color: darken(@orange, 5%);
   }

@@ -399,28 +399,32 @@ function _init() {
     
     $("li a", $(menu)).on('click', function (e) {
       //Get the clicked link and the next element
-      var $this = $(this);
-      var submenu = $this.next('.treeview-menu');
-      var arrow = $('i.pull-right', $this);
-      
+      var $this = $(this),
+	      submenu = $this.next('.treeview-menu'),
+          arrow = $('i.pull-right', $this),
+		  screenWidth = $.AdminLTE.options.screenSizes.sm - 1,
+		  isMini = $('body').hasClass('sidebar-mini') && $('body').hasClass('sidebar-collapse') && $(window).width() > screenWidth;
+	  
       if ( submenu.length > 0 ) {
         e.preventDefault();
         
-        if ( submenu.is(':visible') ) {
-          arrow.removeClass('selected');
-          submenu.removeClass('menu-open').slideUp(250, function() {
-            submenu.parent("li").removeClass("selected");
-            //Fix the layout in case the sidebar stretches over the height of the window
-            _this.layout.fix();
-          });
-        }
-        else {
-          arrow.addClass('selected');
-          submenu.addClass('menu-open').slideDown(250, function() {
-            submenu.parent("li").addClass("selected");
-            //Fix the layout in case the sidebar stretches over the height of the window
-            _this.layout.fix();
-          });         
+        if ( !isMini ) {
+          if ( submenu.is(':visible') ) {
+            arrow.removeClass('selected');
+            submenu.removeClass('menu-open').slideUp(250, function() {
+              submenu.parent("li").removeClass("selected");
+              //Fix the layout in case the sidebar stretches over the height of the window
+              _this.layout.fix();
+            });
+          }
+          else {
+            arrow.addClass('selected');
+            submenu.addClass('menu-open').slideDown(250, function() {
+              submenu.parent("li").addClass("selected");
+              //Fix the layout in case the sidebar stretches over the height of the window
+              _this.layout.fix();
+            });         
+          }
         }
       }
     });

@@ -57,7 +57,7 @@
             > .treeview-menu {
               display: block!important;
               position: absolute;
-              width: @sidebar-width - 50;
+              width: @sidebar-width;
               left: 50px;
             }
 
@@ -85,6 +85,7 @@
       .sidebar-menu >li > a > .pull-right,
       .sidebar-menu li.header {
         display: none!important;
+		-webkit-transform: translateZ(0); // Fix for Safari rendering issue
       }
 
       .main-header {

@@ -29,9 +29,15 @@
 }
 
 .form-group {
+  textarea {
+    width: 100%;
+    max-width: 100%;
+    resize: vertical;
+  }
+    
   &.has-success {
     label {
-      color: @green;
+      color: darken(@green, 5%);;
     }
     .form-control {
       border-color: @green !important;
@@ -41,7 +47,7 @@
 
   &.has-warning {
     label {
-      color: @yellow;
+      color: darken(@orange, 5%);
     }
     .form-control {
       border-color: @yellow !important;
@@ -51,7 +57,7 @@
 
   &.has-error {
     label {
-      color: @red;
+      color: darken(@red, 5%);;
     }
     .form-control {
       border-color: @red !important;
