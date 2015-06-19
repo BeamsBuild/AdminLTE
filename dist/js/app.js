@@ -302,7 +302,7 @@ function _init() {
 	  if ( _this.windowWidth != $(window).width() ) {
 	    _this.windowWidth = $(window).width();
 		
-		if ( _this.windowWidth < $.AdminLTE.options.screenSizes.md ) {
+		if ( _this.windowWidth < $.AdminLTE.options.screenSizes.lg ) {
 		  $("body").addClass('sidebar-collapse');
 		}
 		else {

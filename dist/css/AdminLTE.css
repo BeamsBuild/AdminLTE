@@ -393,7 +393,7 @@ a:focus {
 .content-header > .breadcrumb > li + li:before {
   content: '>\00a0';
 }
-@media (max-width: 991px) {
+@media (max-width: 767px) {
   .content-header > .breadcrumb {
     position: relative;
     margin-top: 5px;
@@ -1371,6 +1371,11 @@ a:focus {
   margin-top: 6px;
   margin-bottom: 6px;
 }
+@media (min-width: 768px) {
+  .form-horizontal .control-label {
+    padding-right: 0;
+  }
+}
 /*
  * Component: Progress Bar
  * -----------------------
@@ -2129,7 +2134,6 @@ a.info-box:focus .info-box-icon i {
 }
 .timeline > li {
   position: relative;
-  margin-right: 10px;
   margin-bottom: 15px;
 }
 .timeline > li:before,
@@ -2148,9 +2152,19 @@ a.info-box:focus .info-box-icon i {
   background: #fff;
   color: #444;
   margin-left: 60px;
-  margin-right: 15px;
   padding: 0;
   position: relative;
+}
+.timeline > li > .timeline-item:after {
+  display: block;
+  position: absolute;
+  content: " ";
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-right-color: #fff;
+  left: -12px;
+  top: 13px;
 }
 .timeline > li > .timeline-item > .time {
   color: #999;
@@ -2158,10 +2172,15 @@ a.info-box:focus .info-box-icon i {
   padding: 10px;
   font-size: 12px;
 }
+.timeline > li > .timeline-item > .time > .fa,
+.timeline > li > .timeline-item > .time > .glyphicon,
+.timeline > li > .timeline-item > .time > .ion {
+  margin-right: 4px;
+}
 .timeline > li > .timeline-item > .timeline-header {
   margin: 0;
   color: #555;
-  border-bottom: 1px solid #f4f4f4;
+  border-bottom: 1px solid #eee;
   padding: 10px;
   font-size: 16px;
   line-height: 1.1;
@@ -2173,9 +2192,11 @@ a.info-box:focus .info-box-icon i {
 .timeline > li > .timeline-item > .timeline-footer {
   padding: 10px;
 }
+.timeline > li > .timeline-item > .timeline-footer {
+  border-top: 1px solid #eee;
+}
 .timeline > li.time-label > span {
-  font-weight: 600;
-  padding: 5px;
+  padding: 4px 8px;
   display: inline-block;
   background-color: #fff;
   border-radius: 4px;
@@ -2193,6 +2214,11 @@ a.info-box:focus .info-box-icon i {
   border-radius: 50%;
   text-align: center;
   left: 18px;
+  top: 4px;
+}
+.timeline > li:last-child > .fa,
+.timeline > li:last-child > .glyphicon,
+.timeline > li:last-child > .ion {
   top: 0;
 }
 /*
@@ -3043,6 +3069,70 @@ table.text-center th {
   border-color: #c23321;
 }
 /*
+ * Component: Ribbon
+ * ----------------------
+ */
+.ribbon {
+  position: relative;
+  display: block;
+  overflow: visible;
+  width: 100%;
+  height: 42px;
+  margin: 15px 0 5px 0;
+  background: #fff;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+.ribbon > .inner {
+  position: absolute;
+  overflow: hidden;
+  top: 4px;
+  bottom: 4px;
+  left: 15px;
+  width: 150%;
+  z-index: 80;
+}
+.ribbon > .inner > .btn,
+.ribbon > .inner > .btn-group {
+  transition: 0.5s ease-in-out;
+  margin: 0 4px 4px 0;
+}
+.ribbon > .overlay-left,
+.ribbon > .overlay-right {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  width: 15px;
+  height: 42px;
+  background: url('/img/ribbon_overlay.png') 0 0 no-repeat;
+}
+.ribbon > .overlay-left {
+  left: 0;
+}
+.ribbon > .overlay-right {
+  right: 49px;
+  background-position: -15px 0;
+}
+.ribbon > .overflow-dropdown {
+  position: absolute;
+  z-index: 100;
+  overflow: visible;
+  top: 0;
+  right: 0;
+  width: 49px;
+  height: 42px;
+  padding-top: 4px;
+  background: #fff;
+}
+.ribbon > .overflow-dropdown > .btn {
+  width: 34px;
+}
+@media (max-width: 767px) {
+  .ribbon {
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
+}
+/*
  * Page: Mailbox
  * -------------
  */
@@ -3852,7 +3942,7 @@ table.text-center th {
 .alert-info,
 .label-danger,
 .label-info,
-.label-waring,
+.label-warning,
 .label-primary,
 .label-success,
 .modal-primary .modal-header,
@@ -3878,8 +3968,7 @@ table.text-center th {
 }
 .bg-yellow,
 .callout.callout-warning,
-.alert-warning,
-.label-waring {
+.alert-warning {
   background-color: #f39c12 !important;
 }
 .bg-aqua,
@@ -3913,7 +4002,8 @@ table.text-center th {
 .bg-lime {
   background-color: #01ff70 !important;
 }
-.bg-orange {
+.bg-orange,
+.label-warning {
   background-color: #ff851b !important;
 }
 .bg-fuchsia {

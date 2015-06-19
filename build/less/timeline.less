@@ -22,10 +22,8 @@
     .border-radius(2px);
   }
 
-
   > li {
     position: relative;
-    margin-right: 10px;
     margin-bottom: 15px;
     .clearfix();
 
@@ -37,21 +35,38 @@
       background: #fff;
       color: #444;
       margin-left: 60px;
-      margin-right: 15px;
       padding: 0;
       position: relative;
-
+        
+      // The arrow
+      &:after {
+          display: block;
+          position: absolute;
+          content: " ";
+          width: 0;
+          height: 0;
+          border: 6px solid transparent;
+          border-right-color: #fff;
+          left: -12px;
+          top: 13px;
+      }
+        
       // The time and header
       > .time {
         color: #999;
         float: right;
         padding: 10px;
         font-size: 12px;
+        > .fa,
+        > .glyphicon,
+        > .ion {
+            margin-right: 4px;
+        }
       }
       > .timeline-header {
         margin: 0;
         color: #555;
-        border-bottom: 1px solid @box-border-color;
+        border-bottom: 1px solid #eee;
         padding: 10px;
         font-size: 16px;
         line-height: 1.1;
@@ -63,14 +78,16 @@
       > .timeline-body, > .timeline-footer {
         padding: 10px;
       }
+      > .timeline-footer {
+        border-top: 1px solid #eee;
+      }
 
     }
 
     // Time label
     &.time-label {
       > span {
-        font-weight: 600;
-        padding: 5px;
+        padding: 4px 8px;
         display: inline-block;
         background-color: #fff;
         
@@ -92,6 +109,11 @@
       border-radius: 50%;
       text-align: center;
       left: 18px;
+      top: 4px;
+    }
+    &:last-child > .fa,
+    &:last-child > .glyphicon,
+    &:last-child > .ion {
       top: 0;
     }
   }
