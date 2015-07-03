@@ -2,7 +2,7 @@
  * Component: modal
  * ----------------
  */
- 
+
 @media (min-width: @screen-sm-min) {
 	.sidebar-mini .modal {
 		padding-top: 50px;
@@ -14,10 +14,10 @@
 		padding-left: 50px;
 	}*/
 }
- 
+
 .modal {
   background: rgba(0,0,0,.3);
-  
+
   &.fade .modal-dialog {
     .translate(0, 0);
 	.transition-transform("none");
@@ -33,6 +33,25 @@
 }
 .modal-header {
   border-bottom-color: @box-border-color;
+  display: table;
+  width: 100%;
+  padding: 0;
+  border-spacing: 15px;
+
+  > .icon,
+  > .close {
+      display: table-cell;
+      width: 24px;
+      font-size: 18px;
+      text-align: center;
+      float: none;
+      margin: 0;
+      vertical-align: middle;
+  }
+  > h4 {
+      display: table-cell;
+      width: 100%;
+  }
 }
 .modal-footer {
   border-top-color: @box-border-color;

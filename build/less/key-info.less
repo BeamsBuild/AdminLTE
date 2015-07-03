@@ -1,0 +1,145 @@
+/*
+ * Component: Key Info buttons
+ * ---------------------------
+ */
+
+.content-header.has-info {
+    padding: 15px 9px 3px 9px;
+
+    > h1 {
+        padding: 0 0 3px 6px;
+
+        a {
+            color: @dark-grey;
+            &:hover {
+                text-decoration: none;
+                color: @light-blue;
+            }
+        }
+    }
+
+    @media (min-width: @screen-sm-min) {
+        display: table;
+        width: 100%;
+        padding: 0 9px 0 0;
+
+        > h1 {
+            display: table-cell;
+            vertical-align: top;
+            padding: 15px;
+            width: 100%;
+        }
+
+        .key-info {
+            display: table-cell;
+            width: auto;
+
+            .info-btn {
+                min-width: 128px;
+            }
+        }
+    }
+
+    .key-info {
+        .user-select(none);
+
+        display: table;
+        width: 100%;
+        min-height: 44px;
+        border-spacing: 6px 5px;
+
+        .info-btn {
+            display: table-cell;
+            vertical-align: top;
+            height: 100%;
+            min-width: 128px;
+            cursor: pointer;
+            text-align: center;
+
+            overflow: hidden;
+
+            .border-radius(@box-border-radius);
+            box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
+            border: 1px solid transparent;
+
+            .type {
+                display: block;
+                padding: 1px 0;
+                font-size: 10px;
+                text-transform: uppercase;
+                background: #fff;
+                color: @dark-grey;
+                /* No colour */
+                padding-bottom: 0;
+                border-bottom: 1px solid @box-border-color;
+            }
+
+            .value {
+                height: 28px;
+                padding: 3px;
+                font-weight: 600;
+                background: #fff;
+
+                .ent-ref {
+                    display: block;
+                    padding: 0 3px;
+                    margin: 0 0 -1px 0;
+                    font-weight: 400;
+                }
+            }
+
+            &:hover, &:focus, &:active {
+                border-color: @darker-grey;
+
+                .type {
+                    background: @dark-grey;
+                    color: #fff;
+                    padding-bottom: 1px;
+                    border-bottom: none;
+                }
+            }
+
+            &:active {
+                box-shadow: 0 1px 3px rgba(0, 0, 0, .25);
+            }
+
+
+            /* Colour variant mixin */
+            .info-btn-colour-variant(@colour, @textColour: #fff) {
+                border-color: darken(@colour, 5%);
+                background: @colour;
+                .type {
+                    padding-bottom: 1px;
+                    border: none;
+                    background: transparent;
+                    color: @textColour;
+                }
+                &:hover, &:focus {
+                    border-color: darken(@colour, 15%);
+                    background: darken(@colour, 5%);
+                }
+                &:active {
+                    border-color: darken(@colour, 25%);
+                    background: darken(@colour, 15%);
+                }
+            }
+
+            /* Colour variations */
+            &.info-blue {
+                .info-btn-colour-variant(@light-blue);
+            }
+            &.info-green {
+                .info-btn-colour-variant(@green);
+            }
+            &.info-orange {
+                .info-btn-colour-variant(@orange);
+            }
+            &.info-red {
+                .info-btn-colour-variant(@red);
+            }
+            &.info-purple {
+                .info-btn-colour-variant(@purple);
+            }
+        }
+    }
+}

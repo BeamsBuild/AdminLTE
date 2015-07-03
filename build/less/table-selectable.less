@@ -1,0 +1,62 @@
+/*
+ * Component: Selectable Table
+ * ---------------------------
+ */
+
+.table-selectable {
+    
+    > thead > tr > th:first-child,
+    > tbody > tr > td:first-child {
+        position: relative;
+        width: 24px;
+    }
+    
+    > tbody > tr.selected {
+        background: lighten(@light-blue, 45%);
+        &:hover {
+            background: lighten(@light-blue, 40%);
+        }
+    }
+    
+    &.table-striped > tbody > tr.selected:nth-of-type(odd) {
+        background: lighten(@light-blue, 42%);
+        &:hover {
+            background: lighten(@light-blue, 37%);
+        }
+    }
+    
+    .col-selector,
+    .row-selector {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: -8px;
+        text-align: center;
+        cursor: pointer;
+        padding: 8px 0;
+        font-family: "FontAwesome";
+        color: transparent;
+        
+        &::after {
+            content: "\f00c";
+        }
+    }
+    
+    .col-selector {
+        color: @gray;
+        &:hover {
+            color: @light-blue;
+        }
+    }
+    
+    > tbody > tr {
+        &:not(.selected):hover .row-selector {
+            color: @gray;
+        }
+        &.selected .row-selector {
+            color: @light-blue;
+        }
+    }
+    
+}

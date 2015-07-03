@@ -1,0 +1,102 @@
+/*
+ * Component: Box Controls
+ * ------------------------------
+ */
+
+.box-header.with-controls {
+    padding: 0;
+
+    .header-controls {
+        display: table;
+        width: 100%;
+        margin: 6px 0;
+
+        > div {
+            display: table-cell;
+            vertical-align: top;
+            padding-right: 6px;
+        }
+
+        .title {
+            .box-title {
+                padding: 8px 6px 8px 12px;
+            }
+        }
+
+        .buttons {
+            width: 1%;
+
+            .button-group {
+                display: table;
+                white-space: nowrap;
+                border-collapse: separate;
+
+                .btn {
+                    padding: 6px 8px;
+
+                    &:not(:first-child) {
+                        margin-left: 4px;
+                    }
+                }
+            }
+        }
+
+        .filters {
+            width: 33%;
+
+            .filter-group {
+                display: table;
+                white-space: nowrap;
+                border-collapse: separate;
+
+                input {
+                    display: table-cell;
+                }
+
+                .btn-wrapper {
+                    display: table-cell;
+                    width: 1%;
+                    position: relative;
+                    font-size: 0;
+                    vertical-align: middle;
+
+                    &:hover {
+                        z-index: 2;
+                    }
+
+                    &:not(:first-child) > .btn {
+                        border-top-left-radius: 0;
+                        border-bottom-left-radius: 0;
+                        margin-left: -1px;
+                    }
+
+                    &:not(:last-child) > .btn {
+                        border-top-right-radius: 0;
+                        border-bottom-right-radius: 0;
+                    }
+                }
+            }
+        }
+
+        @media (max-width: @screen-xs-max) {
+
+            display: block;
+
+            .filters {
+                display: block;
+                width: 100%;
+                padding-left: 6px;
+                padding-top: 6px;
+            }
+        }
+    }
+}
+
+.box-footer.with-controls {
+    padding: 6px;
+
+    p.table-summary {
+        margin: 6px 8px;
+        color: @gray-light;
+    }
+}

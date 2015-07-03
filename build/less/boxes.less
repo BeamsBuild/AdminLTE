@@ -136,6 +136,11 @@
 
 .box,
 .overlay-wrapper {
+  &.not-empty {
+    // Minimum size to contain loading widget
+    min-height: 150px;
+  }
+
   // Box overlay for LOADING STATE effect
   > .overlay,
   > .loading-img {
@@ -147,6 +152,7 @@
   }
 
   .overlay {
+    .user-select(none);
     z-index: 50;
     background: rgba(255, 255, 255, 0.7);
     .border-radius(@box-border-radius);
@@ -158,6 +164,27 @@
       margin-top: -15px;
       color: #000;
       font-size: 30px;
+    }
+    > svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-left: -20px;
+      margin-top: -30px;
+      stroke: @light-blue;
+
+      .md-no-smil & {
+          animation: fa-spin 0.6s infinite linear;
+      }
+    }
+    > h3 {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      color: @light-blue;
+      font-weight: 700;
     }
   }
 
@@ -246,6 +273,14 @@
   // Tables within the box body
   > .table {
     margin-bottom: 0;
+  }
+
+  > hr {
+      border-top: 1px solid @box-border-color;
+      margin: 15px -10px;
+  }
+  &.no-padding > hr {
+      margin: 15px 0;
   }
 
   // Calendar within the box body
@@ -441,7 +476,7 @@
   max-width: 200px;
 }
 
-//A fix for panels body text color when placed within 
+//A fix for panels body text color when placed within
 // a modal
 .modal {
   .panel-body {

@@ -1,0 +1,206 @@
+/*
+ * Component: Selectable Table
+ * ---------------------------
+ */
+.table-permissions {
+    > thead > tr > th {
+        &:not(:first-child) {
+            text-align: left;
+            padding-right: 0;
+            span {
+                margin-left: 4px;
+            }
+        }
+    }
+
+    > tbody > tr > td {
+        &:first-child {
+            width: 40%;
+            vertical-align: middle;
+        }
+        &:not(:first-child) {
+            padding: 3px 2px;
+            position: relative;
+        }
+        &:last-child {
+            padding-right: 4px;
+        }
+    }
+
+
+    .permission {
+        padding: 4px 8px;
+        width: 100%;
+        min-width: 75px;
+        min-height: 30px;
+        text-align: left;
+
+        > span {
+            margin-left: 6px;
+        }
+    }
+
+    @media (max-width: @screen-xs-max) {
+        .permission {
+            padding: 6px 8px;
+        }
+        > tbody > tr > td:not(:first-child) {
+            padding: 4px 3px;
+        }
+    }
+    // Tiny screens don't need text
+    @media (max-width: 500px) {
+        .permission {
+            min-width: inherit;
+            text-align: center;
+            > span {
+               display: none;
+           }
+        }
+        > thead > tr > th {
+            &:not(:first-child) {
+                padding-left: 0;
+                text-align: center;
+                > span {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    &.picker-open {
+        th:not(.selected),
+        tr:not(.selected) .permission {
+            opacity: 0.5;
+        }
+        tr.selected {
+            background-color: lighten(@light-blue, 40%);;
+        }
+    }
+
+    // Sexy permission picker
+    .permission-picker {
+        position: absolute;
+        z-index: 10;
+        width: 100%;
+        top: 0; /* Overridden by javascript */
+        left: 0;
+
+        padding: 2px;
+
+        box-shadow: 0 2px 16px rgba(0,0,0,0.5);
+        border: 1px solid darken(@light-blue, 5%);
+        border-radius: @btn-border-radius+2px;
+
+        background: #fff;
+
+        .picker-row {
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 2px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        // Sexy side divets
+        .btn.selected {
+            &::before,
+            &::after {
+                position: absolute;
+                display: block;
+                content: " ";
+
+                top: 50%;
+                width: 10px;
+                height: 10px;
+                margin-top: -5px;
+                border-radius: 2px;
+                // The magic
+                .rotate(45deg);
+
+                background: #fff;
+                border: 1px solid transparent;
+            }
+            &::before { left: -6px; }
+            &::after { right: -6px; }
+
+            // selector.selector.selector::pseudo::pseudo::pseudo
+            .btn-variant-border(@colour) {
+              &::before, &::after { border-color: darken(@colour, 5%); }
+              &:hover, &.hover, &:active, &.active {
+                &::before, &::after { border-color: darken(@colour, 15%); }
+              }
+              &:focus, &.focus {
+                &::before, &::after { border-color: darken(@colour, 20%); }
+              }
+              &:hover, &.hover, &:focus, &.focus {
+                &:active, &.active {
+                  &::before, &::after { border-color: darken(@colour, 25%); }
+                }
+              }
+            }
+
+            &.btn-primary {
+              .btn-variant-border(@light-blue);
+            }
+            &.btn-success {
+              .btn-variant-border(@green);
+            }
+            &.btn-warning {
+              .btn-variant-border(@orange);
+            }
+            &.btn-danger {
+              .btn-variant-border(@red);
+            }
+
+            // Silly hardcoded default
+            &.btn-default {
+                &::before, &::after { border-color: #ddd; }
+                &:hover, &.hover, &:active, &.active {
+                  &::before, &::after { border-color: #adadad; }
+                }
+                &:focus, &.focus {
+                  &::before, &::after { border-color: #8c8c8c; }
+                }
+                &:hover, &.hover {
+                  &:active, &.active {
+                    &::before, &::after { border-color: #8c8c8c; }
+                  }
+                }
+            }
+        }
+    }
+
+
+}
+/*
+             .permission-picker .btn.selected:hover::before,
+             .permission-picker .btn.selected:hover::after {
+                 border-color: #296282;
+             }
+
+             @@media (max-width: 767px) {
+                 .permission {
+                     padding: 6px 8px;
+                 }
+                 .table-permissions > tbody > tr > td:not(:first-child) {
+                     padding: 4px 3px;
+                 }
+             }
+
+             @@media (max-width: 500px) {
+                 .permission {
+                     min-width: inherit;
+                     text-align: center;
+                 }
+                 .table-permissions > thead > tr > th:not(:first-child) {
+                     padding-left: 0;
+                     text-align: center;
+                 }
+                 .table-permissions > thead > tr > th:not(:first-child) span,
+                 .permission > span {
+                     display: none;
+                 }
+             }
+*/

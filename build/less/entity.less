@@ -1,0 +1,29 @@
+/*
+ * Component: Entity
+ * -----------------
+ */
+
+a.ent-ref {
+    .user-select(none);
+    
+    display: inline-block;
+    background-color: @very-light-grey;
+    color: #444;
+    border: 1px solid @gray;
+    border-radius: 4px;
+    padding: 2px 6px;
+    margin: -3px 0;
+    
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: darken(@light-blue, 5%);
+        border-color: darken(@light-blue, 10%);
+        color: #fff !important;
+        text-decoration: none;
+    }
+    
+    > .fa {
+        margin-right: 6px;
+    }
+}

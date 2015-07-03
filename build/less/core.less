@@ -10,11 +10,12 @@ body {
   }
 }
 
-body {  
+body {
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 400;
   overflow-x: hidden;
   overflow-y: auto;
+  min-width: 320px;
 }
 
 /* Layout */
@@ -40,20 +41,20 @@ body {
  * Content Wrapper - contains the main content
  * ```.right-side has been deprecated as of v2.0.0 in favor of .content-wrapper  ```
  */
-.content-wrapper, 
+.content-wrapper,
 .right-side,
-.main-footer {    
+.main-footer {
   //Using disposable variable to join statements with a comma
   @transition-rule: @transition-speed @transition-fn,
                     margin @transition-speed @transition-fn;
   .transition-transform(@transition-rule);
   margin-left: @sidebar-width;
-  z-index: 820;  
+  z-index: 820;
   //Top nav layout
   .layout-top-nav & {
     margin-left: 0;
   }
-  @media (max-width: @screen-xs-max) {    
+  @media (max-width: @screen-xs-max) {
     margin-left: 0;
   }
   //When opening the sidebar on large screens
@@ -70,11 +71,11 @@ body {
   }
 }
 
-.content-wrapper, 
+.content-wrapper,
 .right-side {
   min-height: 100%;
   background-color: @body-bg;
-  z-index: 800;  
+  z-index: 800;
 }
 .main-footer {
   background: #fff;
@@ -116,21 +117,6 @@ body {
   .container-fixed(@grid-gutter-width);
 }
 
-/* H1 - H6 font */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
-  font-family: 'Source Sans Pro', sans-serif;
-}
 /* General Links */
 a {
   color: @link-color;
