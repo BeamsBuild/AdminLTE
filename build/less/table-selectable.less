@@ -4,27 +4,68 @@
  */
 
 .table-selectable {
-    
+
     > thead > tr > th:first-child,
     > tbody > tr > td:first-child {
         position: relative;
         width: 24px;
     }
-    
+
+    thead a,
+    thead .col-label {
+        width: 100%;
+        display: table;
+        color: #333;
+        text-decoration: none !important;
+
+        span {
+            display: table-cell;
+            width: 100%;
+        }
+
+        .fa {
+            display: table-cell;
+            line-height: 1.42857143;
+            color: @gray;
+        }
+    }
+    thead a {
+        &.active,
+        &:hover {
+            color: @light-blue;
+
+            .fa {
+                color: @light-blue;
+            }
+        }
+    }
+
+    > tbody {
+        a {
+            color: #333;
+            &:hover {
+                color: @light-blue;
+            }
+        }
+        th {
+            font-weight: 600;
+        }
+    }
+
     > tbody > tr.selected {
         background: lighten(@light-blue, 45%);
         &:hover {
             background: lighten(@light-blue, 40%);
         }
     }
-    
+
     &.table-striped > tbody > tr.selected:nth-of-type(odd) {
         background: lighten(@light-blue, 42%);
         &:hover {
             background: lighten(@light-blue, 37%);
         }
     }
-    
+
     .col-selector,
     .row-selector {
         position: absolute;
@@ -37,19 +78,19 @@
         padding: 8px 0;
         font-family: "FontAwesome";
         color: transparent;
-        
+
         &::after {
             content: "\f00c";
         }
     }
-    
+
     .col-selector {
         color: @gray;
         &:hover {
             color: @light-blue;
         }
     }
-    
+
     > tbody > tr {
         &:not(.selected):hover .row-selector {
             color: @gray;
@@ -58,5 +99,5 @@
             color: @light-blue;
         }
     }
-    
+
 }

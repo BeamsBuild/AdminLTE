@@ -69,10 +69,9 @@
     }
 
     &.picker-open {
-        th:not(.selected),
-        tr:not(.selected) .permission {
-            opacity: 0.5;
-        }
+        /*th.selected{
+            color: @light-blue;
+        }*/
         tr.selected {
             background-color: lighten(@light-blue, 40%);;
         }
@@ -86,7 +85,9 @@
         top: 0; /* Overridden by javascript */
         left: 0;
 
+        margin-top: 1px;
         padding: 2px;
+        padding-bottom: 0;
 
         box-shadow: 0 2px 16px rgba(0,0,0,0.5);
         border: 1px solid darken(@light-blue, 5%);
@@ -98,9 +99,6 @@
             position: relative;
             overflow: hidden;
             margin-bottom: 2px;
-            &:last-child {
-                margin-bottom: 0;
-            }
         }
 
         // Sexy side divets
