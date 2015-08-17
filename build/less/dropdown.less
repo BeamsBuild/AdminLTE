@@ -7,7 +7,7 @@
 .dropdown-menu {
   .box-shadow(0 4px 16px rgba(0,0,0,0.175)) !important;
   border-color: darken(@light-blue, 5%);
-  
+
   padding: 5px;
 
   > li > a {
@@ -197,7 +197,7 @@
     // Header menu
     > li.user-header {
       height: 175px;
-      padding: 10px;
+      padding: 20px 0 1px 0;
       text-align: center;
       // User image
       > img {
@@ -248,19 +248,27 @@
       }
     }
   }
-  .user-image {
-    float: left;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    margin-right: 10px;
-    margin-top: -2px;
-    @media (max-width: @screen-xs-max) {
-      float: none;
-      margin-right: 0;
-      margin-top: -8px;
-      line-height: 10px;
-    }
+
+  min-width: 58px;
+
+  .dropdown-toggle {
+      height: 50px;
+
+      > span {
+          margin-left: 43px;
+      }
+
+      .user-image {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        top: 4px;
+        left: 10px;
+      }
+      .shadow {
+          box-shadow: 0 1px 2px rgba(0,0,0,0.25);
+      }
   }
 }
 

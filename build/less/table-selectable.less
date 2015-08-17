@@ -5,6 +5,11 @@
 
 .table-selectable {
 
+    > thead > tr,
+    > tbody > tr {
+        white-space: nowrap;
+    }
+
     > thead > tr > th:first-child,
     > tbody > tr > td:first-child {
         position: relative;
@@ -20,15 +25,18 @@
 
         span {
             display: table-cell;
-            width: 100%;
+            padding-right: 20px;
         }
 
         .fa {
             display: table-cell;
             line-height: 1.42857143;
             color: @gray;
+            text-align: right;
         }
     }
+    thead .col-label .fa { opacity: 0; }
+
     thead a {
         &.active,
         &:hover {

@@ -496,6 +496,45 @@ a:focus {
 .sidebar-form input:focus {
   border-color: transparent!important;
 }
+.business-panel {
+  width: 100%;
+  background-color: #1a2226;
+}
+.business-panel > a {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 12px 13px;
+  text-decoration: none !important;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.business-panel > a > .fa {
+  width: 24px;
+  margin-right: 8px;
+  text-align: center;
+}
+.business-panel > a:hover {
+  color: #fff !important;
+}
+.sidebar-mini.sidebar-collapse .business-panel > a:hover {
+  overflow: visible;
+}
+.sidebar-mini.sidebar-collapse .business-panel > a:hover > span {
+  display: block;
+  position: absolute;
+  width: 230px;
+  left: 50px;
+  top: 0;
+  padding: 12px 13px;
+  background-color: #1a2226;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+.sidebar-mini.sidebar-collapse .business-panel > a:not(:hover) > span {
+  display: none !important;
+  -webkit-transform: translateZ(0);
+}
 .user-panel {
   position: relative;
   width: 100%;
@@ -1108,6 +1147,9 @@ a:focus {
   padding: 0;
   margin: 0;
 }
+.navbar-nav > .user-menu {
+  min-width: 58px;
+}
 .navbar-nav > .user-menu > .dropdown-menu {
   border-top-right-radius: 0;
   border-top-left-radius: 0;
@@ -1118,7 +1160,7 @@ a:focus {
 }
 .navbar-nav > .user-menu > .dropdown-menu > li.user-header {
   height: 175px;
-  padding: 10px;
+  padding: 20px 0 1px 0;
   text-align: center;
 }
 .navbar-nav > .user-menu > .dropdown-menu > li.user-header > img {
@@ -1178,21 +1220,22 @@ a:focus {
 .navbar-nav > .user-menu > .dropdown-menu > .user-footer .btn-default {
   color: #666666;
 }
-.navbar-nav > .user-menu .user-image {
-  float: left;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  margin-right: 10px;
-  margin-top: -2px;
+.navbar-nav > .user-menu .dropdown-toggle {
+  height: 50px;
 }
-@media (max-width: 767px) {
-  .navbar-nav > .user-menu .user-image {
-    float: none;
-    margin-right: 0;
-    margin-top: -8px;
-    line-height: 10px;
-  }
+.navbar-nav > .user-menu .dropdown-toggle > span {
+  margin-left: 43px;
+}
+.navbar-nav > .user-menu .dropdown-toggle .user-image {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  top: 4px;
+  left: 10px;
+}
+.navbar-nav > .user-menu .dropdown-toggle .shadow {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 }
 /* Add fade animation to dropdown menus by appending
  the class .animated-dropdown-menu to the .dropdown-menu ul (or ol)*/
@@ -1320,7 +1363,7 @@ a:focus {
 .form-group textarea {
   width: 100%;
   max-width: 100%;
-  resize: vertical;
+  resize: none;
 }
 .form-group.has-success label {
   color: #249236;
@@ -3665,6 +3708,10 @@ table.text-center th {
  * Component: Selectable Table
  * ---------------------------
  */
+.table-selectable > thead > tr,
+.table-selectable > tbody > tr {
+  white-space: nowrap;
+}
 .table-selectable > thead > tr > th:first-child,
 .table-selectable > tbody > tr > td:first-child {
   position: relative;
@@ -3680,13 +3727,17 @@ table.text-center th {
 .table-selectable thead a span,
 .table-selectable thead .col-label span {
   display: table-cell;
-  width: 100%;
+  padding-right: 20px;
 }
 .table-selectable thead a .fa,
 .table-selectable thead .col-label .fa {
   display: table-cell;
   line-height: 1.42857143;
   color: #d0d0d0;
+  text-align: right;
+}
+.table-selectable thead .col-label .fa {
+  opacity: 0;
 }
 .table-selectable thead a.active,
 .table-selectable thead a:hover {
@@ -4074,13 +4125,16 @@ a.ent-ref {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  display: inline-block;
+  position: relative;
+  display: block;
   background-color: #f4f4f4;
   color: #444;
   border: 1px solid #d0d0d0;
-  border-radius: 4px;
-  padding: 2px 6px;
-  margin: -3px 0;
+  border-radius: 3px;
+  margin: -2px 0;
+  min-width: 120px;
+  max-width: 200px;
+  height: 24px;
 }
 a.ent-ref:hover,
 a.ent-ref:focus,
@@ -4090,8 +4144,32 @@ a.ent-ref:active {
   color: #fff !important;
   text-decoration: none;
 }
+a.ent-ref > .fa,
+a.ent-ref > span {
+  position: absolute;
+  display: block;
+  top: 0;
+  height: 22px;
+  vertical-align: middle;
+}
 a.ent-ref > .fa {
-  margin-right: 6px;
+  left: 0;
+  width: 24px;
+  padding-top: 4px;
+  text-align: center;
+  vertical-align: middle;
+}
+a.ent-ref > span {
+  left: 24px;
+  right: 6px;
+  line-height: 22px;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.table a.ent-ref {
+  margin-bottom: -8px;
 }
 /*
  * Component: Key Info buttons
@@ -4172,10 +4250,10 @@ a.ent-ref > .fa {
   background: #fff;
 }
 .content-header.has-info .key-info .info-btn .value .ent-ref {
-  display: block;
-  padding: 0 3px;
-  margin: 0 0 -1px 0;
+  margin: -1px;
   font-weight: 400;
+  min-width: inherit;
+  width: 100%;
 }
 .content-header.has-info .key-info .info-btn:hover,
 .content-header.has-info .key-info .info-btn:focus,

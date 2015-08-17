@@ -5,15 +5,20 @@
 
 a.ent-ref {
     .user-select(none);
-    
-    display: inline-block;
+
+    position: relative;
+    display: block;
+
     background-color: @very-light-grey;
     color: #444;
     border: 1px solid @gray;
-    border-radius: 4px;
-    padding: 2px 6px;
-    margin: -3px 0;
-    
+    border-radius: 3px;
+    //padding: 2px 6px;
+    margin: -2px 0;
+    min-width: 120px;
+    max-width: 200px;
+    height: 24px;
+
     &:hover,
     &:focus,
     &:active {
@@ -22,8 +27,35 @@ a.ent-ref {
         color: #fff !important;
         text-decoration: none;
     }
-    
-    > .fa {
-        margin-right: 6px;
+
+    > .fa,
+    > span {
+        position: absolute;
+        display: block;
+
+        top: 0;
+        height: 22px;
+
+        vertical-align: middle;
     }
+    > .fa {
+        left: 0;
+        width: 24px;
+        padding-top: 4px;
+        text-align: center;
+        vertical-align: middle;
+    }
+    > span {
+        left: 24px;
+        right: 6px;
+        line-height: 22px;
+        text-align: center;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+}
+
+.table a.ent-ref {
+    margin-bottom: -8px;
 }
