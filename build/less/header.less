@@ -18,7 +18,7 @@
     .layout-top-nav & {
       margin-left: 0!important;
     }
-  }    
+  }
   //Navbar search text input
   #navbar-search-input {
     background: rgba(255,255,255,.2);
@@ -43,12 +43,12 @@
   .navbar-custom-menu,
   .navbar-right {
     float: right;
-    @media (max-width: @screen-sm-max) {
+    /*@media (max-width: @screen-sm-max) {
        a {
         color: inherit;
         background: transparent;
       }
-    }
+    }*/
   }
   .navbar-right {
     @media (max-width: @screen-header-collapse) {
@@ -236,18 +236,18 @@
   }
   .main-sidebar,
   .left-side {
-    padding-top: 100px!important;    
+    padding-top: 100px!important;
   }
 }
 
 .navbar-collapse.pull-left {
   @media(max-width: @screen-sm-max) {
     float: none!important;
-    + .navbar-custom-menu {      
+    + .navbar-custom-menu {
       display: block;
       position: absolute;
       top: 0;
       right: 40px;
     }
-  }  
+  }
 }

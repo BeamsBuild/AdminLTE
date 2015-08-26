@@ -13,10 +13,9 @@ a.ent-ref {
     color: #444;
     border: 1px solid @gray;
     border-radius: 3px;
-    //padding: 2px 6px;
     margin: -2px 0;
     min-width: 120px;
-    max-width: 200px;
+    max-width: 240px;
     height: 24px;
 
     &:hover,
@@ -26,6 +25,9 @@ a.ent-ref {
         border-color: darken(@light-blue, 10%);
         color: #fff !important;
         text-decoration: none;
+        > .fa {
+            border-right-color: darken(@light-blue, 10%);
+        }
     }
 
     > .fa,
@@ -40,14 +42,16 @@ a.ent-ref {
     }
     > .fa {
         left: 0;
-        width: 24px;
+        width: 25px;
         padding-top: 4px;
         text-align: center;
         vertical-align: middle;
+        border-right: 1px solid @gray;
     }
     > span {
-        left: 24px;
-        right: 6px;
+        left: 25px;
+        right: 0px;
+        padding: 0 4px;
         line-height: 22px;
         text-align: center;
         overflow: hidden;

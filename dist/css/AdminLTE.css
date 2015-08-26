@@ -257,13 +257,12 @@ a:focus {
 .main-header .navbar-custom-menu,
 .main-header .navbar-right {
   float: right;
-}
-@media (max-width: 991px) {
-  .main-header .navbar-custom-menu a,
-  .main-header .navbar-right a {
-    color: inherit;
-    background: transparent;
-  }
+  /*@media (max-width: @screen-sm-max) {
+       a {
+        color: inherit;
+        background: transparent;
+      }
+    }*/
 }
 @media (max-width: 767px) {
   .main-header .navbar-right {
@@ -496,45 +495,6 @@ a:focus {
 .sidebar-form input:focus {
   border-color: transparent!important;
 }
-.business-panel {
-  width: 100%;
-  background-color: #1a2226;
-}
-.business-panel > a {
-  position: relative;
-  display: block;
-  width: 100%;
-  padding: 12px 13px;
-  text-decoration: none !important;
-  white-space: nowrap;
-  overflow: hidden;
-}
-.business-panel > a > .fa {
-  width: 24px;
-  margin-right: 8px;
-  text-align: center;
-}
-.business-panel > a:hover {
-  color: #fff !important;
-}
-.sidebar-mini.sidebar-collapse .business-panel > a:hover {
-  overflow: visible;
-}
-.sidebar-mini.sidebar-collapse .business-panel > a:hover > span {
-  display: block;
-  position: absolute;
-  width: 230px;
-  left: 50px;
-  top: 0;
-  padding: 12px 13px;
-  background-color: #1a2226;
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
-.sidebar-mini.sidebar-collapse .business-panel > a:not(:hover) > span {
-  display: none !important;
-  -webkit-transform: translateZ(0);
-}
 .user-panel {
   position: relative;
   width: 100%;
@@ -607,6 +567,9 @@ a:focus {
 .sidebar-menu li.header {
   padding: 10px 25px 10px 15px;
   font-size: 12px;
+}
+.sidebar-menu li.business a {
+  background-color: #1a2226;
 }
 .sidebar-menu li > a {
   position: relative;
@@ -1159,24 +1122,23 @@ a:focus {
   width: 280px;
 }
 .navbar-nav > .user-menu > .dropdown-menu > li.user-header {
-  height: 175px;
   padding: 20px 0 1px 0;
   text-align: center;
 }
 .navbar-nav > .user-menu > .dropdown-menu > li.user-header > img {
   z-index: 5;
-  height: 90px;
-  width: 90px;
-  border: 3px solid;
-  border-color: transparent;
+  height: 112px;
+  width: 112px;
+  border: 6px solid transparent;
   border-color: rgba(255, 255, 255, 0.2);
 }
 .navbar-nav > .user-menu > .dropdown-menu > li.user-header > p {
   z-index: 5;
   color: #fff;
   color: rgba(255, 255, 255, 0.8);
-  font-size: 17px;
-  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 300;
+  margin: 10px;
 }
 .navbar-nav > .user-menu > .dropdown-menu > li.user-header > p > small {
   display: block;
@@ -1224,18 +1186,18 @@ a:focus {
   height: 50px;
 }
 .navbar-nav > .user-menu .dropdown-toggle > span {
-  margin-left: 43px;
+  margin-left: 40px;
 }
 .navbar-nav > .user-menu .dropdown-toggle .user-image {
   position: absolute;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  top: 4px;
-  left: 10px;
+  top: 7px;
+  left: 12px;
 }
 .navbar-nav > .user-menu .dropdown-toggle .shadow {
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
 }
 /* Add fade animation to dropdown menus by appending
  the class .animated-dropdown-menu to the .dropdown-menu ul (or ol)*/
@@ -1801,71 +1763,6 @@ a:focus {
   font-weight: 100;
   font-size: 12px;
   margin-bottom: 0.3em;
-}
-.box.not-empty,
-.overlay-wrapper.not-empty {
-  min-height: 150px;
-}
-.box > .overlay,
-.overlay-wrapper > .overlay,
-.box > .loading-img,
-.overlay-wrapper > .loading-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-.box .overlay,
-.overlay-wrapper .overlay {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  z-index: 50;
-  background: rgba(255, 255, 255, 0.75);
-  border-radius: 3px;
-}
-.box .overlay > .fa,
-.overlay-wrapper .overlay > .fa {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-left: -15px;
-  margin-top: -15px;
-  color: #000;
-  font-size: 30px;
-}
-.box .overlay > svg,
-.overlay-wrapper .overlay > svg,
-.box .overlay > img,
-.overlay-wrapper .overlay > img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-left: -32px;
-  margin-top: -44px;
-  stroke: #3c8dbc;
-}
-.md-no-smil .box .overlay > svg,
-.md-no-smil .overlay-wrapper .overlay > svg,
-.md-no-smil .box .overlay > img,
-.md-no-smil .overlay-wrapper .overlay > img {
-  animation: fa-spin 0.6s infinite linear;
-}
-.box .overlay > h3,
-.overlay-wrapper .overlay > h3 {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  color: #3c8dbc;
-  font-weight: 600;
-}
-.box .overlay.dark,
-.overlay-wrapper .overlay.dark {
-  background: rgba(0, 0, 0, 0.5);
 }
 .box-header:before,
 .box-body:before,
@@ -3436,6 +3333,11 @@ table.text-center th {
 		padding-left: 50px;
 	}*/
 }
+@media (min-width: 768px) {
+  .modal-sm {
+    width: 360px;
+  }
+}
 .modal {
   background: rgba(0, 0, 0, 0.3);
 }
@@ -3502,6 +3404,75 @@ table.text-center th {
 }
 .modal-danger .modal-header {
   border-color: #c23321;
+}
+/*
+ * Component: Loading overlay
+ * --------------
+ */
+.box.not-empty,
+.overlay-wrapper.not-empty,
+.content-wrapper.not-empty {
+  min-height: 150px;
+}
+.box > .overlay,
+.overlay-wrapper > .overlay,
+.content-wrapper > .overlay,
+.box > .loading-img,
+.overlay-wrapper > .loading-img,
+.content-wrapper > .loading-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.box .overlay,
+.overlay-wrapper .overlay,
+.content-wrapper .overlay {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 3px;
+}
+.box .overlay svg,
+.overlay-wrapper .overlay svg,
+.content-wrapper .overlay svg,
+.box .overlay img,
+.overlay-wrapper .overlay img,
+.content-wrapper .overlay img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -32px;
+  margin-top: -44px;
+  stroke: #3c8dbc;
+}
+.md-no-smil .box .overlay svg,
+.md-no-smil .overlay-wrapper .overlay svg,
+.md-no-smil .content-wrapper .overlay svg,
+.md-no-smil .box .overlay img,
+.md-no-smil .overlay-wrapper .overlay img,
+.md-no-smil .content-wrapper .overlay img {
+  animation: fa-spin 0.6s infinite linear;
+}
+.box .overlay h3,
+.overlay-wrapper .overlay h3,
+.content-wrapper .overlay h3 {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: #3c8dbc;
+  font-weight: 600;
+}
+.box .overlay.dark,
+.overlay-wrapper .overlay.dark,
+.content-wrapper .overlay.dark {
+  background: rgba(0, 0, 0, 0.5);
 }
 /*
  * Component: Ribbon
@@ -4133,7 +4104,7 @@ a.ent-ref {
   border-radius: 3px;
   margin: -2px 0;
   min-width: 120px;
-  max-width: 200px;
+  max-width: 240px;
   height: 24px;
 }
 a.ent-ref:hover,
@@ -4143,6 +4114,11 @@ a.ent-ref:active {
   border-color: #307095;
   color: #fff !important;
   text-decoration: none;
+}
+a.ent-ref:hover > .fa,
+a.ent-ref:focus > .fa,
+a.ent-ref:active > .fa {
+  border-right-color: #307095;
 }
 a.ent-ref > .fa,
 a.ent-ref > span {
@@ -4154,14 +4130,16 @@ a.ent-ref > span {
 }
 a.ent-ref > .fa {
   left: 0;
-  width: 24px;
+  width: 25px;
   padding-top: 4px;
   text-align: center;
   vertical-align: middle;
+  border-right: 1px solid #d0d0d0;
 }
 a.ent-ref > span {
-  left: 24px;
-  right: 6px;
+  left: 25px;
+  right: 0px;
+  padding: 0 4px;
   line-height: 22px;
   text-align: center;
   overflow: hidden;
@@ -5510,6 +5488,9 @@ a.ent-ref > span {
 .skin-blue .main-header .navbar .nav > li > a {
   color: #ffffff;
 }
+.skin-blue .main-header .navbar .nav .empty:not(.open) a:not(:hover) {
+  opacity: 0.5;
+}
 .skin-blue .main-header .navbar .nav > li > a:hover,
 .skin-blue .main-header .navbar .nav > li > a:active,
 .skin-blue .main-header .navbar .nav > li > a:focus,
@@ -5537,13 +5518,13 @@ a.ent-ref > span {
   background-color: #367fa9;
 }
 @media (max-width: 767px) {
-  .skin-blue .main-header .navbar .dropdown-menu li.divider {
+  .skin-blue .main-header .navbar .dropdown:not(.user-menu) .dropdown-menu li.divider {
     background-color: rgba(255, 255, 255, 0.1);
   }
-  .skin-blue .main-header .navbar .dropdown-menu li a {
+  .skin-blue .main-header .navbar .dropdown:not(.user-menu) .dropdown-menu li a {
     color: #fff;
   }
-  .skin-blue .main-header .navbar .dropdown-menu li a:hover {
+  .skin-blue .main-header .navbar .dropdown:not(.user-menu) .dropdown-menu li a:hover {
     background: #367fa9;
   }
 }
