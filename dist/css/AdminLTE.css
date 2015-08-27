@@ -3339,7 +3339,7 @@ table.text-center th {
   }
 }
 .modal {
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.5);
 }
 .modal.fade .modal-dialog {
   -webkit-transform: translate(0, 0);
@@ -3389,6 +3389,13 @@ table.text-center th {
 }
 .modal-body {
   overflow-y: auto;
+}
+.modal-lead {
+  margin: 0;
+  padding: 6px;
+  font-size: 22px;
+  font-weight: 300;
+  text-align: center;
 }
 .modal-primary .modal-header {
   border-color: #307095;
@@ -3783,12 +3790,12 @@ table.text-center th {
   width: 40%;
   vertical-align: middle;
 }
+.table-permissions > tbody > tr > td:first-child .fa {
+  margin-right: 4px;
+}
 .table-permissions > tbody > tr > td:not(:first-child) {
   padding: 3px 2px;
   position: relative;
-}
-.table-permissions > tbody > tr > td:last-child {
-  padding-right: 4px;
 }
 .table-permissions .permission {
   padding: 4px 8px;
@@ -3821,6 +3828,9 @@ table.text-center th {
     text-align: center;
   }
   .table-permissions > thead > tr > th:not(:first-child) > span {
+    display: none;
+  }
+  .table-permissions > tbody > tr > td:first-child .fa {
     display: none;
   }
 }
@@ -4104,8 +4114,9 @@ a.ent-ref {
   border-radius: 3px;
   margin: -2px 0;
   min-width: 120px;
-  max-width: 240px;
+  max-width: 200px;
   height: 24px;
+  font-weight: 400 !important;
 }
 a.ent-ref:hover,
 a.ent-ref:focus,
@@ -4194,7 +4205,7 @@ a.ent-ref > span {
   display: table;
   width: 100%;
   min-height: 44px;
-  border-spacing: 6px 5px;
+  border-spacing: 6px;
 }
 .content-header.has-info .key-info .info-btn {
   display: table-cell;
@@ -4206,20 +4217,17 @@ a.ent-ref > span {
   overflow: hidden;
   border-radius: 3px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-  border: 1px solid transparent;
+  border: 1px solid #aaa;
+  background: #bbb;
   /* Colour variant mixin */
   /* Colour variations */
 }
 .content-header.has-info .key-info .info-btn .type {
   display: block;
-  padding: 1px 0;
   font-size: 10px;
   text-transform: uppercase;
-  background: #fff;
-  color: #aaaaaa;
-  /* No colour */
-  padding-bottom: 0;
-  border-bottom: 1px solid #eeeeee;
+  background: transparent;
+  color: #fff;
 }
 .content-header.has-info .key-info .info-btn .value {
   height: 28px;
@@ -4229,35 +4237,20 @@ a.ent-ref > span {
 }
 .content-header.has-info .key-info .info-btn .value .ent-ref {
   margin: -1px;
-  font-weight: 400;
-  min-width: inherit;
-  width: 100%;
 }
 .content-header.has-info .key-info .info-btn:hover,
-.content-header.has-info .key-info .info-btn:focus,
-.content-header.has-info .key-info .info-btn:active {
-  border-color: #999999;
-}
-.content-header.has-info .key-info .info-btn:hover .type,
-.content-header.has-info .key-info .info-btn:focus .type,
-.content-header.has-info .key-info .info-btn:active .type {
-  background: #aaaaaa;
-  color: #fff;
-  padding-bottom: 1px;
-  border-bottom: none;
+.content-header.has-info .key-info .info-btn:focus {
+  border-color: #888;
+  background: #999;
 }
 .content-header.has-info .key-info .info-btn:active {
+  border-color: #777;
+  background: #888;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
 }
 .content-header.has-info .key-info .info-btn.info-red {
   border-color: #d73925;
   background: #dd4b39;
-}
-.content-header.has-info .key-info .info-btn.info-red .type {
-  padding-bottom: 1px;
-  border: none;
-  background: transparent;
-  color: #ffffff;
 }
 .content-header.has-info .key-info .info-btn.info-red:hover,
 .content-header.has-info .key-info .info-btn.info-red:focus {
@@ -4272,12 +4265,6 @@ a.ent-ref > span {
   border-color: #e67505;
   background: #fa820a;
 }
-.content-header.has-info .key-info .info-btn.info-orange .type {
-  padding-bottom: 1px;
-  border: none;
-  background: transparent;
-  color: #ffffff;
-}
 .content-header.has-info .key-info .info-btn.info-orange:hover,
 .content-header.has-info .key-info .info-btn.info-orange:focus {
   border-color: #b45c04;
@@ -4290,12 +4277,6 @@ a.ent-ref > span {
 .content-header.has-info .key-info .info-btn.info-yellow {
   border-color: #ddb909;
   background: #f5ce0a;
-}
-.content-header.has-info .key-info .info-btn.info-yellow .type {
-  padding-bottom: 1px;
-  border: none;
-  background: transparent;
-  color: #ffffff;
 }
 .content-header.has-info .key-info .info-btn.info-yellow:hover,
 .content-header.has-info .key-info .info-btn.info-yellow:focus {
@@ -4310,12 +4291,6 @@ a.ent-ref > span {
   border-color: #249236;
   background: #29a63e;
 }
-.content-header.has-info .key-info .info-btn.info-green .type {
-  padding-bottom: 1px;
-  border: none;
-  background: transparent;
-  color: #ffffff;
-}
 .content-header.has-info .key-info .info-btn.info-green:hover,
 .content-header.has-info .key-info .info-btn.info-green:focus {
   border-color: #1a6927;
@@ -4328,12 +4303,6 @@ a.ent-ref > span {
 .content-header.has-info .key-info .info-btn.info-blue {
   border-color: #367fa9;
   background: #3c8dbc;
-}
-.content-header.has-info .key-info .info-btn.info-blue .type {
-  padding-bottom: 1px;
-  border: none;
-  background: transparent;
-  color: #ffffff;
 }
 .content-header.has-info .key-info .info-btn.info-blue:hover,
 .content-header.has-info .key-info .info-btn.info-blue:focus {
@@ -4348,12 +4317,6 @@ a.ent-ref > span {
   border-color: #634ca6;
   background: #7059b3;
 }
-.content-header.has-info .key-info .info-btn.info-purple .type {
-  padding-bottom: 1px;
-  border: none;
-  background: transparent;
-  color: #ffffff;
-}
 .content-header.has-info .key-info .info-btn.info-purple:hover,
 .content-header.has-info .key-info .info-btn.info-purple:focus {
   border-color: #4e3c83;
@@ -4366,12 +4329,6 @@ a.ent-ref > span {
 .content-header.has-info .key-info .info-btn.info-dark {
   border-color: #2b3c4e;
   background: #34495e;
-}
-.content-header.has-info .key-info .info-btn.info-dark .type {
-  padding-bottom: 1px;
-  border: none;
-  background: transparent;
-  color: #ffffff;
 }
 .content-header.has-info .key-info .info-btn.info-dark:hover,
 .content-header.has-info .key-info .info-btn.info-dark:focus {

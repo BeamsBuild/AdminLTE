@@ -17,13 +17,13 @@
         &:first-child {
             width: 40%;
             vertical-align: middle;
+            .fa {
+                margin-right: 4px;
+            }
         }
         &:not(:first-child) {
             padding: 3px 2px;
             position: relative;
-        }
-        &:last-child {
-            padding-right: 4px;
         }
     }
 
@@ -57,14 +57,15 @@
                display: none;
            }
         }
-        > thead > tr > th {
-            &:not(:first-child) {
-                padding-left: 0;
-                text-align: center;
-                > span {
-                    display: none;
-                }
+        > thead > tr > th:not(:first-child) {
+            padding-left: 0;
+            text-align: center;
+            > span {
+                display: none;
             }
+        }
+        > tbody > tr > td:first-child .fa {
+            display: none;
         }
     }
 

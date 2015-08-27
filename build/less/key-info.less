@@ -46,7 +46,7 @@
         display: table;
         width: 100%;
         min-height: 44px;
-        border-spacing: 6px 5px;
+        border-spacing: 6px;
 
         .info-btn {
             display: table-cell;
@@ -60,18 +60,15 @@
 
             .border-radius(@box-border-radius);
             box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
-            border: 1px solid transparent;
+            border: 1px solid #aaa;
+            background: #bbb;
 
             .type {
                 display: block;
-                padding: 1px 0;
                 font-size: 10px;
                 text-transform: uppercase;
-                background: #fff;
-                color: @dark-grey;
-                /* No colour */
-                padding-bottom: 0;
-                border-bottom: 1px solid @box-border-color;
+                background: transparent;
+                color: #fff;
             }
 
             .value {
@@ -82,38 +79,23 @@
 
                 .ent-ref {
                     margin: -1px;
-                    font-weight: 400;
-                    min-width: inherit;
-                    width: 100%;
                 }
             }
 
-            &:hover, &:focus, &:active {
-                border-color: @darker-grey;
-
-                .type {
-                    background: @dark-grey;
-                    color: #fff;
-                    padding-bottom: 1px;
-                    border-bottom: none;
-                }
+            &:hover, &:focus {
+                border-color: #888;
+                background: #999;
             }
-
             &:active {
+                border-color: #777;
+                background: #888;
                 box-shadow: 0 1px 3px rgba(0, 0, 0, .25);
             }
 
-
             /* Colour variant mixin */
-            .info-btn-colour-variant(@colour, @textColour: #fff) {
+            .info-btn-colour-variant(@colour) {
                 border-color: darken(@colour, 5%);
                 background: @colour;
-                .type {
-                    padding-bottom: 1px;
-                    border: none;
-                    background: transparent;
-                    color: @textColour;
-                }
                 &:hover, &:focus {
                     border-color: darken(@colour, 15%);
                     background: darken(@colour, 5%);
