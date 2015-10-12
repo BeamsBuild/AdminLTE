@@ -3688,6 +3688,12 @@ table.text-center th {
  * Component: Selectable Table
  * ---------------------------
  */
+.table-selectable {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 .table-selectable > thead > tr,
 .table-selectable > tbody > tr {
   white-space: nowrap;
@@ -3770,6 +3776,9 @@ table.text-center th {
 }
 .table-selectable .col-selector:hover {
   color: #3c8dbc;
+}
+.table-selectable .col-sortable {
+  cursor: pointer;
 }
 .table-selectable > tbody > tr:not(.selected):hover .row-selector {
   color: #d0d0d0;
@@ -4340,6 +4349,38 @@ a.ent-ref > span {
 .content-header.has-info .key-info .info-btn.info-dark:active {
   border-color: #07090c;
   background: #19232d;
+}
+/*
+ * Component: Preview modal content
+ * --------------------------------
+ */
+.preview {
+  width: 100%;
+  text-align: center;
+}
+.preview .preview-image {
+  max-width: 100%;
+  width: 150px;
+  margin: 0 auto 12px auto;
+  border-radius: 50%;
+}
+.preview .preview-title {
+  margin-bottom: 22px;
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 1.2;
+}
+.preview .preview-subtitle {
+  font-size: 12px;
+  margin-top: -20px;
+  margin-bottom: 12px;
+}
+.preview .preview-block {
+  width: 100%;
+  margin-bottom: 12px;
+}
+.preview .preview-block:last-child {
+  margin-bottom: 0;
 }
 /*
  * Page: Mailbox

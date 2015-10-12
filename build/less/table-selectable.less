@@ -4,6 +4,7 @@
  */
 
 .table-selectable {
+    .user-select(none);
 
     > thead > tr,
     > tbody > tr {
@@ -97,6 +98,10 @@
         &:hover {
             color: @light-blue;
         }
+    }
+
+    .col-sortable {
+        cursor: pointer;
     }
 
     > tbody > tr {
