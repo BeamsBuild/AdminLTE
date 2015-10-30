@@ -3513,11 +3513,14 @@ table.text-center th {
   bottom: 4px;
   left: 15px;
   width: 150%;
+  margin: 0;
+  padding: 0;
   z-index: 80;
+  list-style: none;
 }
-.ribbon > .inner > .btn,
-.ribbon > .inner > .btn-group {
+.ribbon > .inner > li {
   margin: 0 4px 4px 0;
+  float: left;
 }
 .ribbon > .overlay-left,
 .ribbon > .overlay-right {
