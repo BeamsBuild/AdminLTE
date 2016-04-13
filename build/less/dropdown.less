@@ -90,7 +90,6 @@
     overflow-x: hidden;
     > li > a {
       display: block;
-      white-space: nowrap; /* Prevent text from breaking */
       border-bottom: 1px solid #f4f4f4;
       // Hove state
       &:hover {
@@ -104,21 +103,21 @@
 //Notifications menu
 .navbar-nav > .notifications-menu {
   > .dropdown-menu > li .menu {
-    // Links inside the menu
     > li > a {
-      color: #444444;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
       padding: 10px;
-      // Icons inside the menu
-      > .glyphicon,
-      > .fa,
-      > .ion {
-        width: 20px;
+
+      > h3 {
+        font-size: 14px;
+        padding: 0;
+        margin: 0 0 10px 0;
+        color: #666666;
+      }
+
+      > .progress {
+        padding: 0;
+        margin: 0;
       }
     }
-
   }
 }
 
@@ -186,6 +185,53 @@
     }
   }
 }
+
+//Addnew menu
+.addnew {
+//position: relative;
+  //fix width and padding
+  > .dropdown-menu {
+    > li {
+      position: relative;
+    }
+    text-align: center;
+    //Hover state
+    &:hover {
+      text-decoration: none;
+      font-weight: normal;
+    }
+    
+  }
+  
+    //Define header class
+  > .dropdown-menu > li.header {
+    .border-radius(4px; 4px; 0; 0);
+    background-color: #ffffff;
+    padding: 7px 10px;
+    border-bottom: 1px solid #f4f4f4;
+    color: #444444;
+    font-size: 14px;
+  }
+
+  //Clear inner menu padding and margins
+  > .dropdown-menu > li .menu {
+    max-height: 240px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    > li > a {
+      margin-top: 3px;
+      margin-bottom: 3px;
+      display: block;
+      // Hove state
+      &:hover {
+        background: #f4f4f4;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
 //User menu
 .navbar-nav > .user-menu {
   > .dropdown-menu {
@@ -218,6 +264,9 @@
           display: block;
           font-size: 12px;
         }
+      }
+      > small {
+         color: #fff;
       }
     }
 

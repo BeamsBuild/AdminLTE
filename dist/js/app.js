@@ -29,6 +29,8 @@ if (typeof jQuery === "undefined") {
  */
 $.AdminLTE = {};
 
+$.ajaxSetup({ cache: false });
+
 /* --------------------
  * - AdminLTE Options -
  * --------------------

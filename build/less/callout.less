@@ -46,3 +46,40 @@
     border-color: darken(@green, 10%);
   }
 }
+
+
+.toolbar {
+  .border-radius(3px);
+  margin: 0;
+  padding: 2px 7px 2px 2px;
+  border-left: 5px solid #eee;
+  p:last-child {
+    margin-bottom: 0;
+  }
+  code,
+  .highlight {
+    background-color: #fff;
+  }
+
+  // Themes for different contexts
+  &.toolbar-danger {
+    color: #fff !important;
+    background-color: darken(@red, 10%) !important;
+    border-color: darken(@red, 20%);
+  }
+  &.toolbar-warning {
+    color: #fff !important;
+    background-color: darken(@yellow, 10%) !important;
+    border-color: darken(@yellow, 20%);
+  }
+  &.toolbar-info {
+    color: #fff !important;
+    background-color: darken(@aqua, 10%) !important;
+    border-color: darken(@aqua, 20%);
+  }
+  &.toolbar-success {
+    color: #fff !important;
+    background-color: darken(@green, 10%) !important;
+    border-color: darken(@green, 20%);
+  }
+}

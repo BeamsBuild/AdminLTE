@@ -82,6 +82,26 @@
       background: transparent;
     }
   }
+  
+  .addnew-toggle {
+    float: left;
+    background-color: transparent;
+    background-image: none;
+    padding: @navbar-padding-vertical @navbar-padding-horizontal;
+	text-decoration: none !important;
+    //Add the fontawesome bars icon
+    font-family: fontAwesome;
+    &:before {
+      content: "\f067";
+    }
+    &:hover {
+      color: #fff;
+    }
+    &:focus,
+    &:active {
+      background: transparent;
+    }
+  }
   .sidebar-toggle .icon-bar {
     display: none;
   }
@@ -124,9 +144,17 @@
     .logo-lg {
       //should be visibile when sidebar isn't collapsed
       display: block;
+      > img {
+        max-width: 200px;
+        max-height: 50px;
+      }
     }
     .logo-mini {
       display: none;
+      > img {
+        max-width: 50px;
+        max-height: 50px;
+      }
     }
 	img {
 	  vertical-align: baseline;

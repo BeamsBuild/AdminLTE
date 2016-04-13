@@ -17,6 +17,14 @@
 
     @media (max-width: @screen-xs-max) {
         margin-bottom: 0;
+        > .inner {
+            overflow-y: auto;
+            > li {
+                > button.dropdown-toggle {
+                    display: none;
+                }
+            }
+        }
     }
 
     > .inner {
@@ -24,7 +32,7 @@
         top: 4px;
         bottom: 4px;
         left: 15px;
-        width: 150%;
+        width: 100%;
         margin: 0;
         padding: 0;
         z-index: 80;
@@ -33,7 +41,9 @@
         > li {
             //.transition(left 0.5s ease-in-out);
             margin: 0 4px 4px 0;
-            float: left;
+            //float: left;
+            display: table-cell;
+            padding-right: 4px;
 
             > .btn,
             > .btn-group {
@@ -74,6 +84,49 @@
 
         > .btn {
             width: 34px;
+        }
+    }
+}
+
+.inline-ribbon {
+        float: right;
+
+        > .inner {
+        top: 4px;
+        bottom: 4px;
+        right: 5px;
+        margin: 0;
+        padding: 0;
+        z-index: 80;
+        list-style: none;
+
+        > li {
+            //.transition(left 0.5s ease-in-out);
+            margin: 0 4px 4px 0;
+            float: left;
+
+            > .btn,
+            > .btn-group {
+                > .fa {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+
+.inline-ribbon.boxheader {
+        > .inner {
+        position:absolute;
+
+        > li {
+            > .btn,
+            > .btn-group {
+                > .fa {
+                    margin-right: 6px;
+                    margin-left: -3px;
+                }
+            }
         }
     }
 }

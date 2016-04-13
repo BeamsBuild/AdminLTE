@@ -8,6 +8,12 @@
   @media (min-width: @screen-sm) {
     //When the sidebar is collapsed...
     &.sidebar-collapse {
+        .sidebar-collapse()
+    }
+  }
+}
+
+.sidebar-collapse() {
 
       //Apply the new margining to the main content and footer
       .content-wrapper,
@@ -109,7 +115,11 @@
         }
       }
     }
-  }
+
+@media (min-width: @screen-sm) and (max-width: @screen-lg) {
+    body.hold-transition { /* Fix for IE */
+        .sidebar-collapse()
+    }
 }
 
 //A fix for text overflow while transitioning from sidebar mini to full sidebar
